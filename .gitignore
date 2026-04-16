@@ -6,6 +6,22 @@ target/
 # Runtime artifacts
 data/
 
+# Secrets and local credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.crt
+*.cer
+*.der
+secrets/
+credentials/
+
 # IDE
 .idea/
 .vscode/
