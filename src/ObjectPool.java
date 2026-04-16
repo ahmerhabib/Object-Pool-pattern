@@ -18,6 +18,9 @@ public class ObjectPool<T> {
     private int maxSize;
 
     public ObjectPool(CreateFunction_test<T> CreateFunction_test, ResetFunction_test<T> ResetFunction_test, int maxSize) {
+        if (maxSize <= 0) {
+            throw new IllegalArgumentException("maxSize must be greater than 0");
+        }
         this.CreateFunction_test = CreateFunction_test;
         this.ResetFunction_test = ResetFunction_test;
         this.maxSize = maxSize;
@@ -39,8 +42,8 @@ public class ObjectPool<T> {
 
     public void free(T obj) {
         if (activeObjects.remove(obj)) {
-            ResetFunction_test.reset(obj);
-            availableObjects.add(obj);
+            T resetObj = ResetFunction_test.reset(obj);
+            availableObjects.add(resetObj);
         }
     }
 

@@ -1,0 +1,19 @@
+# Build outputs
+bin/
+target/
+*.class
+
+# Runtime artifacts
+data/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+
+# Maven Wrapper cache
+.mvn/wrapper/apache-maven-*/
+.m2/
